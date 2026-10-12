@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanPulse | Protecting Our Oceans</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="ocean-bg">
+        <div class="fish-layer layer-bg" id="fishLayerBg"></div>
+        <div class="fish-layer layer-mid" id="fishLayerMid"></div>
+        <div class="fish-layer layer-fg" id="fishLayerFg"></div>
+        <div class="particle-container" id="particleContainer"></div>
+        <div class="light-rays"></div>
+        <div class="seafloor" id="seafloor"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-brand">
+            <div class="nav-logo-left">
+                <img src="logo.png" alt="Ocean Pulse Logo" class="corner-logo-img">
+            </div>
+            <span class="nav-title">Ocean Pulse</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#learn" class="nav-link">Learn</a></li>
+            <li><a href="#why-matters" class="nav-link">Why It Matters</a></li>
+            <li><a href="#map" class="nav-link">Pollution Map</a></li>
+               <li><a href="#report" class="nav-link">Take Action</a></li>
+            <li><a href="#feedback" class="nav-link">Feedback</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#learn" class="mobile-link">Learn</a>
+        <a href="#why-matters" class="mobile-link">Why It Matters</a>
+        <a href="#map" class="mobile-link">Pollution Map</a>
+        <a href="#report" class="mobile-link">Take Action</a>
+        <a href="#feedback" class="mobile-link">Feedback</a>
+    </div>
+
+    <!-- PAGE 1: HOME -->
+    <section id="home" class="page-section active-section">
+        <div class="hero">
+            <div class="hero-content fade-in-up">
+                <h1 class="hero-title">Ocean Pulse</h1>
+                <p class="hero-subtitle-large">Protecting Our Oceans, One Pulse at a Time</p>
+                <p class="hero-subtitle">Marine pollution in India threatens our coastal ecosystems, marine biodiversity, and the livelihoods of millions. Ocean Pulse is a student-led initiative dedicated to raising awareness, educating communities, and driving actionable change to protect our deep blue heritage.</p>
+                <div class="hero-buttons">
+                    <a href="#map" class="btn btn-primary">Explore Pollution Map</a>
+                    <a href="#report" class="btn btn-secondary">Take Action</a>
+                </div>
+            </div>
+        </div>
+
+        
+            <h2 class="section-title">Meet The Team</h2>
+            <div >
+                <<div class="carousel-container glass-card">
+
+    <button class="carousel-btn prev-btn" id="prevBtn" style="display: none;">‹</button>
+
+    <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-slide active">
+
+            <div class="team-photo group-photo" style="
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px auto;
+    overflow: hidden;
+    position: relative;
+">
+
+    <img src="group-photo.jpeg"
+         alt="Ocean Pulse Core Team"
+         style="
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 15px;
+         ">
+</div>
+
+            <h3>Ocean Pulse Core Team</h3>
+
+            <p class="team-mission">
+                <strong>Team Mission:</strong>
+                To safeguard India's marine ecosystems through awareness,
+                education, responsible action, and community participation.
+            </p>
+
+            <p class="team-desc">
+                <strong>Team Description:</strong>
+                A dedicated group of students working together to spread
+                awareness about marine pollution and encourage people to
+                become responsible Ocean Guardians.
+            </p>
+
+        </div>
+
+    </div>
+
+    <button class="carousel-btn next-btn" id="nextBtn" style="display: none;">›</button>
+
+</div>
+
+       </section>
+       <!-- PAGE 2: LEARN -->
+    <section id="learn" class="page-section">
+       
+        <div class="section-container">
+            <h2 class="section-title">Learn About Marine Pollution</h2>
+            
+            <div class="learn-intro glass-card fade-in">
+                <h3>What is Marine Pollution?</h3>
+                <p>Marine pollution is the introduction of harmful substances or energy into the ocean environment, causing adverse effects on marine life, ecosystems, and human health. It is a global concern that threatens the delicate balance of our oceans, which produce over 50% of the world's oxygen and regulate the global climate.</p>
+            </div>
+
+            <h3 class="subsection-title">Major Causes</h3>
+            <div class="causes-grid">
+                <div class="info-card glass-card hover-lift">
+                    <div class="card-icon">🥤</div>
+                    <h4>Plastic Waste</h4>
+                    <p>Millions of tons of plastic enter oceans yearly, breaking down into microplastics that infiltrate the food chain.</p>
+                </div>
+                <div class="info-card glass-card hover-lift">
+                    <div class="card-icon">🛢️</div>
+                    <h4>Oil Spills</h4>
+                    <p>Accidental or deliberate discharge of petroleum hydrocarbons devastates coastal habitats and marine wildlife.</p>
+                </div>
+                <div class="info-card glass-card hover-lift">
+                    <div class="card-icon">🏭</div>
+                    <h4>Industrial Discharge</h4>
+                    <p>Untreated chemical effluents from factories poison water bodies and cause toxic algal blooms.</p>
+                </div>
+                <div class="info-card glass-card hover-lift">
+                    <div class="card-icon">🚽</div>
+                    <h4>Sewage Pollution</h4>
+                    <p>Untreated domestic sewage introduces pathogens and excess nutrients, depleting oxygen in coastal waters.</p>
+                </div>
+                <div class="info-card glass-card hover-lift">
+                    <div class="card-icon">🎣</div>
+                    <h4>Fishing Waste</h4>
+                    <p>Abandoned fishing gear (ghost nets) continues to trap and kill marine life for decades.</p>
+                </div>
+                <div class="info-card glass-card hover-lift">
+                    <div class="card-icon">🧪</div>
+                    <h4>Chemical Runoff</h4>
+                    <p>Agricultural pesticides and fertilizers wash into the sea, causing dead zones and coral bleaching.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Effects on Marine Ecosystems</h3>
+            <div class="effects-list glass-card">
+                <div class="effect-item">
+                    <span class="effect-icon">🐟</span>
+                    <div>
+                        <h4>Harm to Fish Populations</h4>
+                        <p>Toxins accumulate in fish tissues, leading to reproductive failure and population decline.</p>
+                    </div>
+                </div>
+                <div class="effect-item">
+                    <span class="effect-icon">🐢</span>
+                    <div>
+                        <h4>Threat to Sea Turtles</h4>
+                        <p>Turtles mistake plastic bags for jellyfish, leading to fatal intestinal blockages.</p>
+                    </div>
+                </div>
+                <div class="effect-item">
+                    <span class="effect-icon">🪸</span>
+                    <div>
+                        <h4>Coral Reef Destruction</h4>
+                        <p>Pollution and warming waters cause coral bleaching, destroying vital marine nurseries.</p>
+                    </div>
+                </div>
+                <div class="effect-item">
+                    <span class="effect-icon">📉</span>
+                    <div>
+                        <h4>Biodiversity Loss</h4>
+                        <p>Habitat degradation leads to the extinction of sensitive marine species.</p>
+                    </div>
+                </div>
+                <div class="effect-item">
+                    <span class="effect-icon">🔗</span>
+                    <div>
+                        <h4>Food Chain Contamination</h4>
+                        <p>Microplastics and heavy metals biomagnify, eventually reaching human consumers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">What Can Individuals Do?</h3>
+            <div class="actions-grid">
+                <div class="action-card glass-card hover-lift">
+                    <span class="action-icon">🚫</span>
+                    <h4>Reduce Plastic Usage</h4>
+                </div>
+                <div class="action-card glass-card hover-lift">
+                    <span class="action-icon">♻️</span>
+                    <h4>Recycle Properly</h4>
+                </div>
+                <div class="action-card glass-card hover-lift">
+                    <span class="action-icon">🧹</span>
+                    <h4>Join Beach Cleanups</h4>
+                </div>
+                <div class="action-card glass-card hover-lift">
+                    <span class="action-icon">💧</span>
+                    <h4>Save Water</h4>
+                </div>
+                <div class="action-card glass-card hover-lift">
+                    <span class="action-icon">🌿</span>
+                    <h4>Use Eco-Friendly Products</h4>
+                </div>
+                <div class="action-card glass-card hover-lift">
+                    <span class="action-icon">📢</span>
+                    <h4>Educate Others</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- PAGE 3: WHY IT MATTERS -->
+    <section id="why-matters" class="page-section">
+        <div class="section-container">
+            <h2 class="section-title">Why Marine Pollution Matters</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-card glass-card fade-in">
+                    <div class="impact-header">🌍</div>
+                    <h3>Importance of Oceans</h3>
+                    <p>Oceans cover 71% of Earth's surface, produce 50-80% of the oxygen we breathe, and absorb 30% of CO2 emissions, regulating the global climate.</p>
+                </div>
+                <div class="impact-card glass-card fade-in">
+                    <div class="impact-header">🐋</div>
+                    <h3>Impact on Marine Life</h3>
+                    <p>Over 100,000 marine mammals and 1 million seabirds die annually from plastic entanglement and ingestion.</p>
+                </div>
+                <div class="impact-card glass-card fade-in">
+                    <div class="impact-header">🏥</div>
+                    <h3>Impact on Human Health</h3>
+                    <p>Consumption of seafood contaminated with microplastics and heavy metals like mercury poses severe neurological and developmental risks.</p>
+                </div>
+                <div class="impact-card glass-card fade-in">
+                    <div class="impact-header">🏘️</div>
+                    <h3>Impact on Coastal Communities</h3>
+                    <p>Polluted waters destroy fisheries and tourism, directly threatening the livelihoods of millions of coastal residents in India.</p>
+                </div>
+                <div class="impact-card glass-card fade-in">
+                    <div class="impact-header">💰</div>
+                    <h3>Economic Consequences</h3>
+                    <p>Marine pollution costs the global economy billions annually in lost tourism revenue, fisheries decline, and cleanup operations.</p>
+                </div>
+                <div class="impact-card glass-card fade-in">
+                    <div class="impact-header">⚠️</div>
+                    <h3>Future Risks</h3>
+                    <p>Without immediate action, scientists predict there will be more plastic than fish in the ocean by weight by 2050.</p>
+                </div>
+            </div>
+
+            <div class="cta-banner glass-card">
+                <h2>Every Action Counts. Protect Our Oceans Today.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE POLLUTION MAP -->
+    <section id="map" class="page-section">
+        <div class="section-container full-width">
+            <h2 class="section-title">Interactive Pollution Map of India</h2>
+            <p class="section-subtitle">Explore pollution hotspots along the Indian coastline and surrounding seas.</p>
+            <div id="pollutionMap" class="map-container glass-card"></div>
+            <div class="map-legend glass-card">
+                <div class="legend-item"><span class="legend-color green"></span> Low</div>
+                <div class="legend-item"><span class="legend-color yellow"></span> Moderate</div>
+                <div class="legend-item"><span class="legend-color orange"></span> High</div>
+                <div class="legend-item"><span class="legend-color red"></span> Critical</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPORT POLLUTION PORTAL -->
+      <section id="report" class="page-section">
+        <div class="section-container">
+            <h2 class="section-title">Take Action</h2>
+            
+            <div class="report-layout">
+                <div class="guide-card glass-card">
+                    <h3>How to Lodge a Complaint</h3>
+                    <ol class="guide-steps">
+                        <li><strong>Collect evidence:</strong> Photos, videos, location details, date and time.</li>
+                        <li><strong>Open the official portal:</strong> You will be redirected to the Government of India grievance portal.</li>
+                        <li><strong>Register or log in</strong> to the CPGRAMS system.</li>
+                        <li><strong>Navigate</strong> to the grievance or environmental complaint section (Ministry of Environment, Forest and Climate Change).</li>
+                        <li><strong>Enter details:</strong> Location, pollution type, and description.</li>
+                        <li><strong>Upload</strong> your supporting evidence.</li>
+                        <li><strong>Submit</strong> the complaint.</li>
+                        <li><strong>Save</strong> your complaint reference number for tracking.</li>
+                    </ol>
+                </div> 
+
+                <div class="form-card glass-card">
+                    <h3>Incident Details</h3>
+                    <form id="reportForm">
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <select id="location" required>
+                                <option value="">Select a coastal region...</option>
+                                <option value="Mumbai Coast">Mumbai Coast</option>
+                                <option value="Alang Coast">Alang Coast</option>
+                                <option value="Gulf of Kutch">Gulf of Kutch</option>
+                                <option value="Gulf of Khambhat">Gulf of Khambhat</option>
+                                <option value="Veraval Coast">Veraval Coast</option>
+                                <option value="Chennai Coast">Chennai Coast</option>
+                                <option value="Ennore Creek">Ennore Creek</option>
+                                <option value="Marina Beach Region">Marina Beach Region</option>
+                                <option value="Kochi Coast">Kochi Coast</option>
+                                <option value="Vembanad Lake Outflow">Vembanad Lake Outflow</option>
+                                <option value="Mangalore Coast">Mangalore Coast</option>
+                                <option value="Visakhapatnam Coast">Visakhapatnam Coast</option>
+                                <option value="Kakinada Coast">Kakinada Coast</option>
+                                <option value="Paradeep Port">Paradeep Port</option>
+                                <option value="Chilika Lagoon Region">Chilika Lagoon Region</option>
+                                <option value="Digha Coast">Digha Coast</option>
+                                <option value="Sundarbans Delta">Sundarbans Delta</option>
+                                <option value="Bay of Bengal">Bay of Bengal</option>
+                                <option value="Arabian Sea">Arabian Sea</option>
+                                <option value="Lakshadweep Islands">Lakshadweep Islands</option>
+                                <option value="Andaman & Nicobar Islands">Andaman & Nicobar Islands</option>
+                                <option value="other">Other (Specify below)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="otherLocationGroup" style="display: none;">
+                            <label for="otherLocation">Other Location</label>
+                            <input type="text" id="otherLocation" placeholder="Enter coastal or marine location">
+                        </div>
+                        <div class="form-group">
+                            <label for="pollutionType">Type of Pollution</label>
+                            <select id="pollutionType" required>
+                                <option value="">Select type...</option>
+                                <option value="Plastic Waste">Plastic Waste</option>
+                                <option value="Oil Spill">Oil Spill</option>
+                                <option value="Industrial Discharge">Industrial Discharge</option>
+                                <option value="Sewage">Sewage</option>
+                                <option value="Chemical Runoff">Chemical Runoff</option>
+                                <option value="Fishing Waste">Fishing Waste</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" rows="4" placeholder="Describe the pollution incident in detail..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">Submit & Redirect to Official Portal</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="postReport" class="post-report glass-card" style="display: none;">
+                <h3>🌊 Thank You for Taking Action</h3>
+                <p>You will now be redirected to the official Government of India grievance portal to take action.</p>
+                <div class="tip-box">
+                    <strong>💡 Ocean Tip:</strong> <span id="rotatingTip"></span>
+                </div>
+                <a href="https://pgportal.gov.in/" target="_blank" class="btn btn-secondary" id="redirectBtn">Proceed to pgportal.gov.in</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FEEDBACK PAGE -->
+    <section id="feedback" class="page-section">
+        <div class="section-container">
+            <h2 class="section-title">Your Feedback Matters</h2>
+            <div class="feedback-container glass-card">
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="feedbackName">Name (Optional)</label>
+                        <input type="text" id="feedbackName" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <div class="star-rating" id="starRating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                        <input type="hidden" id="ratingValue" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackMessage">Feedback Message</label>
+                        <textarea id="feedbackMessage" rows="4" placeholder="Share your thoughts on Ocean Pulse..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </form>
+                <div id="feedbackThankYou" class="thank-you-message" style="display: none;">
+                    <h3>Thank You! 🌊</h3>
+                    <p>Your feedback helps us improve our ocean conservation efforts.</p>
+                    <p class="avg-rating">Current Average Rating: <span id="avgRatingDisplay">0.0</span> / 5.0</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- CORAL REEF SCENE -->
+    <section class="coral-reef-section">
+        <div class="reef-container">
+            <div class="reef-light-rays"></div>
+            <div class="reef-particles" id="reefParticles"></div>
+            <div class="reef-fish-container" id="reefFishContainer"></div>
+            <div class="reef-background">
+                <!-- Coral formations will be generated by JavaScript -->
+            </div>
+            <div class="reef-midground">
+                <!-- More coral and plants -->
+            </div>
+            <div class="reef-foreground">
+                <!-- Front corals and creatures -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Ocean Pulse – Save Our Oceans 🌊</h3>
+            <p>Healthy oceans begin with informed communities. Every action, no matter how small, helps protect our marine ecosystems for future generations.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#learn">Learn</a>
+                <a href="#map">Map</a>
+                <a href="#report">Take Action</a>
+            </div>
+            <p class="copyright">&copy; 2026 Ocean Pulse. A student-led environmental initiative.</p>
+        </div>
+    </footer>
+
+    <!-- OCEANBUDDY CHATBOT -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-tooltip" id="chatbotTooltip">Ask OceanBuddy 🌊</div>
+        <div class="chatbot-window glass-card" id="chatbotWindow">
+            <div class="chatbot-header">
+                <span class="chatbot-icon">🤖</span>
+                <span class="chatbot-title">OceanBuddy</span>
+                <button class="chatbot-close" id="chatbotClose">×</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    Hello! I'm OceanBuddy 🌊 Ask me anything about marine pollution, conservation, or how you can help protect our oceans!
+                </div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbotInput" placeholder="Type your question...">
+                <button id="chatbotSend">➤</button>
+            </div>
+        </div>
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <span class="toggle-icon">💬</span>
+        </button>
+    </div>
+
+    <!-- QUIZ MODAL -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-content glass-card">
+            <button class="quiz-close" id="quizClose">×</button>
+            <div id="quizStart">
+                <h2>🌊 Marine Awareness Quiz</h2>
+                <p>Test your knowledge about ocean conservation! Can you become an Ocean Guardian?</p>
+                <button class="btn btn-primary" id="startQuizBtn">Start Quiz</button>
+            </div>
+            <div id="quizGame" style="display: none;">
+                <div class="quiz-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <span id="progressText">Question 1/5</span>
+                </div>
+                <h3 id="questionText">Question goes here?</h3>
+                <div class="quiz-options" id="quizOptions"></div>
+            </div>
+            <div id="quizResult" style="display: none;">
+                <h2 id="resultTitle">Ocean Guardian 🦈</h2>
+                <p id="resultMessage">Jaw-some! You scored 100%!</p>
+                <div class="result-score" id="resultScore">5/5</div>
+                <button class="btn btn-primary" id="restartQuizBtn">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANIMATION OVERLAYS -->
+    <div class="animation-overlay" id="animationOverlay">
+        <div class="swimming-fish" id="swimmingFish"></div>
+        <div class="celebration-bubbles" id="celebrationBubbles"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+   
+<script src="script.js"></script>
+
+</html>
